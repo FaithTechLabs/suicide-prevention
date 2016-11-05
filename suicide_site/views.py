@@ -17,7 +17,7 @@ def get_loc(request):
     city = g.city(get_client_ip(request))
     province = None
     if city:
-	province = city['region']
+        province = city['region']
     return province
 
 class Location:
