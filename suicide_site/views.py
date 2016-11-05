@@ -5,11 +5,12 @@ from .models import Reason
 
 
 def get_client_ip(request):
-    ip = request.META.get('HTTP_CF_CONNECTING_IP')
-    if ip is None:
+    x_forwarded_for = request.META.get('HTTP_X_REAL_IP')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
-
 
 def get_loc(request):
     g = GeoIP()
