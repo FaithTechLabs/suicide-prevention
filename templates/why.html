@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Why do you want to kill yourself?{% endblock %}
+{% block content %}
+{% block meta %}
+<meta name="description" content="We want to know why you want to kill yourself">
+<meta name="title" content="Why do you want to kill yourself?">
+{% endblock %}
+
+<br>
+<h1>Why do you want to kill yourself?</h1>
+<form action="." method="post">
+{% csrf_token %}
+    <center>
+    <input type="text" id="why_id" name="why" style="width: 90%;"/>
+    </center>
+</form>
+{% if answers %}
+    {{ answers }}
+    <h1>Resources</h1>
+    {% for resource in resources %}
+        {{ resource }}<br>
+    {% endfor %}
+{% endif %}
+{{ loc }}
+{% endblock %}
