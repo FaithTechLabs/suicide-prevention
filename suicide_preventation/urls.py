@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^', include('suicide_site.urls', namespace="suicide_site")),
