@@ -4,10 +4,13 @@
 <meta name="keywords" content="suicide, kill myself, kill yourself, commit suicide, depression, how to kill yourself, how do you kill yourself">
 <meta name="description" content="Why do you want to kill yourself?">
 
+<br>
 <h1>Why do you want to kill yourself?</h1>
 <form action="." method="post">
 {% csrf_token %}
-    <input type="text" id="why_id" name="why"/>
+    <center>
+    <input type="text" id="why_id" name="why" style="width: 90%;"/>
+    </center>
 </form>
 {% if answers %}
     {{ answers }}
