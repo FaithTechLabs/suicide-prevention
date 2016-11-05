@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>This is the content for the index page</h1>
-{{ loc }}
+<div class='banner'>
+  <div class='content-container'>
+    <h2>Are you asking how to kill yourself?</h2>
+    <h1>You're not alone.</h1>
+    <a id='phoneButton' href='tel:+12267897545' class='hide-for-medium btn'>
+      <i class='fa fa-phone'></i> Call (call center name)
+    </a>
+    <iframe class='hide-for-small-only' width="560" height="315" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
+    <iframe class='hide-for-medium' width="300" height="200" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class='main'>
+  <div class='content-container'>
+    <h3>Heartfelt title here</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <h3>Heartfelt title here</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+<script>
+  initLocation('{{ loc }}');
+</script>
 {% endblock %}
 
