@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import patterns, include, url
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^', include('suicide_site.urls', namespace="suicide_site")),
     url(r'^admin/', include(admin.site.urls)),
-)
+]
