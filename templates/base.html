@@ -1,9 +1,62 @@
+<!doctype html>
 <html>
-<body>
-<h1>The Nav goes here</h1>
-{% block content %}
-{% endblock %}
-<h1> The footer goes here</h1>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href={% static "css/foundation.min.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/font-awesome.min.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/app.css" %}>
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+    <h1> The footer goes here</h1>
+    <div class='footer'>
+      <div class='content-container'>
+        <div class='row'>
+          <div class='columns small-12 medium-4'>
+            <h6>Internal Informational Links (pages with infographics?)</h6>
+            <ul>
+              <li>
+                Link 1
+              </li>
+              <li>
+                Link 2
+              </li>
+              <li>
+                Link 3
+              </li>
+            </ul>
+          </div>
+          <div class='columns small-12 medium-4'>
+            <h6>Internal Links to Pages with Geography Based Resources</h6>
+            <ul>
+              <li>
+                Link 4
+              </li>
+              <li>
+                Link 5
+              </li>
+            </ul>
+          </div>
+          <div class='columns small-12 medium-4'>
+            <h6>Contact us</h6>
+            <ul>
+              <li>
+                james@faithtech.ca
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
 
-</body>
+    {% load staticfiles %}
+    <script src={% static "js/vendor/jquery.js" %}></script>
+    <script src={% static "js/vendor/what-input.js" %}></script>
+    <script src={% static "js/vendor/foundation.min.js" %}></script>
+    <script src={% static "js/app.js" %}></script>
+  </body>
 </html>
