@@ -49,7 +49,8 @@ class Why(TemplateView, Location):
     def post(self, request):
         province = get_loc(request)
         print(request.POST.get("why", ""))
-        query = Reason.objects.filter(keywords__icontains=request.POST.get("why", "")).first()
+        #In order to be any good we'll need to move to psql, after we do that when can use __search for this
+        query = Reason.objects.filter(keywords__contains=str(request.POST.get("why", ""))).first()
         if not query:
             answers = ""
             resources = ""
