@@ -1,6 +1,41 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
-<h1>This is the content for the Resource page</h1>
-{{ loc }}
+<h2>Resources</h2>
+<a href='tel:+12267897545' class='btn phone-btn'>
+    <i class='fa fa-phone hide-for-medium'></i>
+    <span class='name'>Call</span>
+    <span class='hide-for-small-only'>
+      <br>
+      <i class='fa fa-phone'></i>
+      <span class='number'></span>
+</span>
+</a>
+<a id='chatButton' href='/chat/' class='btn success'>
+    <i class='fa fa-commenting-o'></i> Chat Now
+</a>
+<div class='row'>
+  <div class='columns small-12 medium-8' style="text-align: left">
+    <a href="http://p2c.com/"><img style="padding-bottom: 15px;" src={% static "images/p2c-white-logo.png" %} /></a>
+    <br>
+    <a href="http://p2c.com/2016/10/03/finding-hope-face-death/">Finding Hope in the Face of Death</a>
+    <br>
+    <a href="http://p2c.com/receive/#receive">Need someone to talk to?</a>
+    <br>
+
+    <a href="https://www.thehopeline.com/gethelp/"><img style="padding-bottom: 15px; padding-top: 70px;" src={% static "images/THL-Logo.png" %} /></a>
+    <br>
+    <a href="https://www.thehopeline.com/patricks-story/">Patricks Story: I tried to kill myself</a>
+    <br>
+    <a href="https://www.thehopeline.com/what-to-do-when-you-feel-suicidal/">What To Do When You Are Feeling Suicidal</a>
+    <br>
+    <a href="https://www.thehopeline.com/i-jumped-off-of-a-freeway-overpass/">Quinn’s Story: I Jumped Off of a Freeway Overpass</a>
+   </div>
+</div>
+
+<script>
+  initLocation('{{ loc }}');
+</script>
+
 {% endblock %}
 
