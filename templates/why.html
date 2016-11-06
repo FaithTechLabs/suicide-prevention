@@ -6,23 +6,27 @@
 <meta name="title" content="Why do you want to kill yourself?">
 {% endblock %}
 
-<br>
-<h1>Why do you want to kill yourself?</h1>
-<form action="." method="post">
-{% csrf_token %}
-    <center>
-    <input type="text" id="why_id" name="why" style="width: 60%; border-radius: 15px;"/>
-    </center>
-</form>
-  <div class='content-container' style="text-align: left;">
-  <br>
-    {% if answers %}
-        {{ answers }}
-        <br>
-        <h1>Resources</h1>
-        {% for resource in resources %}
-            {{ resource }}<br>
-        {% endfor %}
-    {% endif %}
+<div class='banner'>
+  <div class='content-container'>
+    <h1>Why do you want to kill yourself?</h1>
+    <br><br>
+  <form action="." method="post">
+  {% csrf_token %}
+      <center>
+      <input type="text" id="why_id" name="why" style="width: 60%; border-radius: 15px;"/>
+      </center>
+  </form>
+    <div class='content-container' style="text-align: left;">
+    <br>
+      {% if answers %}
+          {{ answers }}
+          <br>
+          <h1>Resources</h1>
+          {% for resource in resources %}
+              {{ resource }}<br>
+          {% endfor %}
+      {% endif %}
+    </div>
   </div>
+</div>
 {% endblock %}
