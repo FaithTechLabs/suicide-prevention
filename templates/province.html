@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Welcome to the {{ page_loc }} Page!</h1>
-{{ loc }}
+<div class='banner'>
+  <div class='content-container'>
+    <h1>Crisis Centre for {{ page_loc }}</h1>
+  </div>
+</div>
+
+<div class='main'>
+  <div class='content-container'>
+    <p class='crisis-centre'>
+      Your crisis centre: <span class='name'></span>
+    </p>
+    <p class='phone-number'>
+      Phone number: <span class='number'></span>
+    </p>
+    <p class='address-container hidden'>
+      Address: <span class='address'></span>
+    </p>
+    <p class='email-container hidden'>
+      Email: <a class='email'></a>
+    </p>
+  </div>
+</div>
+
+<script>
+  initProvince('{{ page_loc }}')
+</script>
+
 {% endblock %}
 
