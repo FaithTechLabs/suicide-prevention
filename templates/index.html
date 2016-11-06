@@ -4,20 +4,27 @@
   <div class='content-container'>
     <h2>Are you asking how to kill yourself?</h2>
     <h1>You're not alone.</h1>
-    <a id='phoneButton' href='tel:+12267897545' class='hide-for-medium btn'>
-      <i class='fa fa-phone'></i> Call (call center name)
+    <a href='tel:+12267897545' class='hide-for-medium btn phone-btn'>
+      <i class='fa fa-phone'></i>
+      <span class='name'>Call</span>
     </a>
     <a id='chatButton' href='/chat/' class='hide-for-medium btn'>
       <i class='fa fa-commenting-o'></i> Chat Now
     </a>
     <iframe class='hide-for-small-only' width="560" height="315" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
-    <!--<iframe class='hide-for-medium' width="300" height="200" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>-->
+    <iframe class='hide-for-medium' width="280" height="180" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 
-<div class="show-for-medium-only">
-    <a id='phoneButton' href='tel:+12267897545' class='btn'>
-      <i class='fa fa-phone'></i> Call (call center name)
+  <div class="hide-for-small-only">
+    <a href='tel:+12267897545' class='btn phone-btn'>
+      <i class='fa fa-phone hide-for-medium'></i>
+      <span class='name'>Call</span>
+      <span class='hide-for-small-only'>
+        <br>
+        <i class='fa fa-phone'></i>
+        <span class='number'></span>
+      </span>
     </a>
     <a id='chatButton' href='/chat/' class='btn success'>
       <i class='fa fa-commenting-o'></i> Chat Now
@@ -37,45 +44,36 @@
 
 <div class='main'>
   <div class='content-container'>
-	  <div id="tab1">
+	  <div id="tab1" class='tab'>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum vehicula odio, a congue enim molestie at. Phasellus interdum quis quam id ultrices. Praesent at mi interdum, malesuada dui accumsan, tincidunt risus. Nam sit amet ante sit amet turpis placerat rutrum eget non risus. Ut dictum magna purus.</p>
 	  </div>
-	  <div id="tab2">
+	  <div id="tab2" class='tab'>
 		<p>Ut dictum magna purus. Morbi finibus facilisis quam et convallis. Sed at placerat ligula. Etiam a sem mi. Vestibulum at venenatis tortor. Suspendisse potenti. Etiam erat est, tincidunt in posuere eu, imperdiet iaculis dui. Nam ut odio at neque gravida porttitor vel id ante. Sed semper nec dolor ultricies placerat. </p>
 	  </div>
-	  <div id="tab3">
+	  <div id="tab3" class='tab'>
 		<p>Pellentesque eu rhoncus velit, nec condimentum leo. Suspendisse feugiat tortor ultricies, venenatis massa sed, ultrices quam. Nullam vel elementum dui. Nullam nisi odio, imperdiet ut nisl vitae, ultrices consectetur ipsum. Donec ut magna et arcu tincidunt semper. Curabitur efficitur mauris ut mi mattis, nec aliquet metus accumsan.</p>
 	  </div>
    </div>
 </div>
 
 <script>
+  var clickTab = function(index) {
+      $('.btn-group .btn').removeClass('active');
+      $('#btn' + index).addClass('active');
+      $('.tab').hide();
+      $('#tab' + index).show();
+  }
    $(document).ready(function() {
 		$("#tab2").hide();
 		$("#tab3").hide();
-		$( "#btn1" ).click(function(){
-				$("#btn1").addClass("active");
-				$("#btn2").removeClass("active");
-				$("#btn3").removeClass("active");
-				$("#tab1").show();
-				$("#tab2").hide();
-				$("#tab3").hide();
+		$("#btn1" ).click(function(){
+        clickTab(1);
 		});
 		$("#btn2").click(function() {
-				$("#btn1").removeClass("active");
-				$("#btn2").addClass("active");
-				$("#btn3").removeClass("active");
-				$("#tab1").hide();
-				$("#tab2").show();
-				$("#tab3").hide();
+				clickTab(2);
 		});
 		$("#btn3").click(function() {
-				$("#btn1").removeClass("active");
-				$("#btn2").removeClass("active");
-				$("#btn3").addClass("active");
-				$("#tab1").hide();
-				$("#tab2").hide();
-				$("#tab3").show();
+				clickTab(3);
 		});
       $(document).foundation();
    })
