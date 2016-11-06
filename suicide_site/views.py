@@ -31,8 +31,17 @@ class Index(TemplateView, Location):
         province = get_loc(request)
         return render(request, self.template_name, {'loc': province})
 
+
 class Chat(TemplateView, Location):
     template_name = "chat.html"
+
+    def get(self, request):
+        province = get_loc(request)
+        return render(request, self.template_name, {'loc': province})
+
+
+class Resource(TemplateView, Location):
+    template_name = "resource.html"
 
     def get(self, request):
         province = get_loc(request)
