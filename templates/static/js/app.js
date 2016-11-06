@@ -67,13 +67,15 @@ var centreDictionary = {
   'British Columbia': 'BC',
   'Manitoba': 'MB',
   'New Brunswick': 'NB',
+  'Newfoundland': 'NL',
   'Nova Scotia': 'NS',
   'Northwest Territories': 'NT',
   'Nunavut': 'NU',
   'Ontario': 'ON',
-  'PEI': 'PEI',
+  'PEI': 'PE',
   'Quebec': 'QC',
-  'Saskatchewan': 'SK'
+  'Saskatchewan': 'SK',
+  'Yukon': 'YT'
 }
 
 var centres = {
@@ -106,6 +108,11 @@ var centres = {
     code: 'NB',
     email: 'chimo1@nb.aibn.com'
   },
+  NL: {
+    name: 'Mental Health Crisis Centre (NFL)',
+    phone: 18887374668,
+    address: '47 St  Clare Avenue, St. John’s, NF A1C 2J9'
+  },
   NS: {
     name: 'Mental Health Mobile Crisis Team',
     phone: 18884298167,
@@ -132,7 +139,7 @@ var centres = {
     provinceName: 'Ontario',
     code: 'ON'
   },
-  PEI: {
+  PE: {
     name: 'Island Helpline',
     phone: 18002182885,
     provinceName: 'PEI',
