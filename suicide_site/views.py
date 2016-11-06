@@ -81,16 +81,25 @@ class Why(TemplateView, Location):
 
     def post(self, request):
         province = get_loc(request)
-        print(request.POST.get("why", ""))
-        #In order to be any good we'll need to move to psql, after we do that when can use __search for this
-        query = Reason.objects.filter(keywords__search=str(request.POST.get("why", ""))).first()
-        if not query:
+        why = request.POST.get("why", "")
+        result = None
+
+        query = Reason.objects.all()
+        for item in query:
+            for word in item.keywords.split("|"):
+                print(why)
+                print(word)
+                print(why.find(word))
+                if why.find(word) != -1:
+                    result = item
+
+        if not result:
             answers = ""
             resources = ""
             return render(request, self.template_name, {'loc': province, 'answers': answers, 'resources': resources })
 
-        answers = query.response
-        resources = query.resources.split("\n")
+        answers = result.response
+        resources = result.resources.split("\n")
         return render(request, self.template_name, {'loc': province, 'answers': answers, 'resources': resources })
 
 class WhyHere(TemplateView):
