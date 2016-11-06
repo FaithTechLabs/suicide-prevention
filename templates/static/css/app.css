@@ -68,7 +68,8 @@ ul {
 
 .banner h2,
 .banner h1,
-.struggle h2 {
+.struggle h2,
+.content-container h3 {
   /*font-family: sans-serif;*/
   font-family: 'Gloria Hallelujah', sans-serif;
   /*font-weight: 300;*/
@@ -83,12 +84,23 @@ ul {
   font-size: 2.5rem;
 }
 
+.main { text-align: center; }
+
 .main .content-container {
   background-color: #353c4b;
   border-radius: 1rem;
-  margin: auto;
+  display: inline-block;
+  margin: 0 0.5rem;
   padding: 1.5rem;
   text-align: left;
+}
+
+.main .content-container img {
+  border-radius: 4px;
+  float: right;
+  margin: 0.5rem 0 0.5rem 1rem;
+  max-width: 25rem;
+  max-height: 15rem;
 }
 
 .footer {
@@ -97,10 +109,13 @@ ul {
 
 .footer,
 .footer a,
-.footer a:focus {
+.footer a:focus,
+.content-container a,
+.content-container a:focus {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.content-container a:hover,
 .footer a:hover {
   color: #fff;
 }
@@ -138,6 +153,7 @@ ul {
 }
 
 .btn-group .btn.active {
+  background-color: #353c4b;
   text-decoration: underline;
 }
 
@@ -166,11 +182,25 @@ ul {
     float: left;
     width: 50%;
   }
+
+  .btn-group .btn {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+  }
 }
 
 @media (max-width: 640px) {
   .main .content-container {
     padding: 1rem;
+  }
+
+  .main .content-container img {
+    display: block;
+    float: none;
+    margin: 1rem auto;
+    max-width: 100%;
+    text-align: center;
   }
 
   .hide-for-small-only {
@@ -179,4 +209,9 @@ ul {
 
   .nav li { float: none; }
   .nav a { width: 100%; }
+
+  .btn-group .btn {
+    margin: 0 0 0.25rem;
+    width: 100%;
+  }
 }
