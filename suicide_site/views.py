@@ -57,15 +57,17 @@ class Province(TemplateView, Location):
         words = page_loc.split(" ")
         caps = []
         for word in words:
-            if word != "and":
+            if word != "and" and word != "Pei":
                 caps.append(word.capitalize())
+            elif word == "Pei":
+                caps.append("PEI")
             else:
                 caps.append(word)
         page_loc = " ".join(caps)
 
         print(page_loc)
         if page_loc not in ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", \
-                "Nova Scotia", "Ontario", "Prince Edward Island", "Northwest Territories", "Yukon", "Nunavut"]:
+                "Nova Scotia", "Ontario", "PEI", "Northwest Territories", "Yukon", "Nunavut"]:
             return render(request, "404.html", {'loc': province, 'page_loc': page_loc})
         return render(request, self.template_name, {'loc': province, 'page_loc': page_loc})
 
