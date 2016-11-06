@@ -93,9 +93,16 @@ ul {
   margin: 0 0.5rem;
   padding: 1.5rem;
   text-align: left;
+  width: calc(100% - 1rem);
 }
 
 .main .content-container img {
+  margin: 1rem 0;
+  max-width: 15rem;
+  max-height: 4rem;
+}
+
+.main .content-container .tab img {
   border-radius: 4px;
   float: right;
   margin: 0.5rem 0 0.5rem 1rem;
@@ -195,7 +202,7 @@ ul {
     padding: 1rem;
   }
 
-  .main .content-container img {
+  .main .content-container .tab img {
     display: block;
     float: none;
     margin: 1rem auto;
