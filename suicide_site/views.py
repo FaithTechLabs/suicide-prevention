@@ -83,7 +83,7 @@ class Why(TemplateView, Location):
         province = get_loc(request)
         print(request.POST.get("why", ""))
         #In order to be any good we'll need to move to psql, after we do that when can use __search for this
-        query = Reason.objects.filter(keywords__contains=str(request.POST.get("why", ""))).first()
+        query = Reason.objects.filter(keywords__search=str(request.POST.get("why", ""))).first()
         if not query:
             answers = ""
             resources = ""
