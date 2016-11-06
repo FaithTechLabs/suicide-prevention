@@ -67,7 +67,8 @@ ul {
 }
 
 .banner h2,
-.banner h1 {
+.banner h1,
+.struggle h2 {
   /*font-family: sans-serif;*/
   font-family: 'Gloria Hallelujah', sans-serif;
   /*font-weight: 300;*/
