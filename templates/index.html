@@ -16,23 +16,23 @@
   </div>
 </div>
 
-  <div class="hide-for-small-only">
-    <a href='tel:+12267897545' class='btn phone-btn'>
-      <i class='fa fa-phone hide-for-medium'></i>
-      <span class='name'>Call</span>
-      <span class='hide-for-small-only'>
-        <br>
-        <i class='fa fa-phone'></i>
-        <span class='number'></span>
-      </span>
-    </a>
-    <a id='chatButton' href='/chat/' class='btn success'>
-      <i class='fa fa-commenting-o'></i> Chat Now
-    </a>
+<div class="hide-for-small-only">
+  <a href='tel:+12267897545' class='btn phone-btn'>
+    <i class='fa fa-phone hide-for-medium'></i>
+    <span class='name'>Call</span>
+    <span class='hide-for-small-only'>
+      <br>
+      <i class='fa fa-phone'></i>
+      <span class='number'></span>
+    </span>
+  </a>
+  <a id='chatButton' href='/chat/' class='btn success'>
+    <i class='fa fa-commenting-o'></i> Chat Now
+  </a>
 </div>
 <br>
 <div class="struggle">
-    <h2>Are you struggling with?</h2>
+    <h2>What are you struggling with?</h2>
 </div>
 
 <br>
@@ -64,8 +64,7 @@
       $('#tab' + index).show();
   }
    $(document).ready(function() {
-		$("#tab2").hide();
-		$("#tab3").hide();
+    clickTab(1);
 		$("#btn1" ).click(function(){
         clickTab(1);
 		});

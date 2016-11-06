@@ -12,7 +12,7 @@ var formatPhone = function(num) {
   return phone;
 }
 
-var initLocation = function(loc) {
+var getLocation = function(loc) {
   var province;
   switch(loc) {
     case 'AB':
@@ -27,18 +27,19 @@ var initLocation = function(loc) {
     case 'QC':
     case 'SK':
     case 'NU':
-      obj = loc;
+      province = loc;
       break;
     case 'YT':
-      // 24/7 service for Nunavut
-      obj = 'NU';
+      province = 'NU';
       break;
     default:
-      // Ontario number
-      obj = 'ON';
+      province = 'ON';
   }
+  return province;
+}
 
-  var province = centres[obj];
+var initLocation = function(loc) {
+  var province = centres[getLocation(loc)];
   $('.phone-btn').attr('href', 'tel:+' + province.phone);
   $('.phone-btn .number').text(formatPhone(province.phone));
   $('.phone-btn .name').html(province.name)

@@ -59,3 +59,9 @@ class Why(TemplateView, Location):
         answers = query.response
         resources = query.resources.split("\n")
         return render(request, self.template_name, {'loc': province, 'answers': answers, 'resources': resources })
+
+class WhyHere(TemplateView):
+    template_name = "why_here.html"
+
+    def get(self, request):
+        return render(request, self.template_name)

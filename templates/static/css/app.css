@@ -92,8 +92,17 @@ ul {
 }
 
 .footer {
-  color: rgba(255, 255, 255, 0.75);
   padding: 1rem;
+}
+
+.footer,
+.footer a,
+.footer a:focus {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer a:hover {
+  color: #fff;
 }
 
 .footer h6 {
@@ -149,6 +158,11 @@ ul {
 
   .banner h1 {
     font-size: 5rem;
+  }
+
+  .footer li {
+    float: left;
+    width: 50%;
   }
 }
 
