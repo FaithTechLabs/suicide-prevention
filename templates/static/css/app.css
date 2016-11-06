@@ -141,6 +141,8 @@ ul {
   text-decoration: underline;
 }
 
+.hidden { display: none; }
+
 @media (min-width: 641px) {
   .hide-for-medium,
   .nav a.hide-for-medium {
@@ -160,7 +162,7 @@ ul {
     font-size: 5rem;
   }
 
-  .footer li {
+  .footer .locations li {
     float: left;
     width: 50%;
   }
