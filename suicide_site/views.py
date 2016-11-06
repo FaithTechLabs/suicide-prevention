@@ -39,6 +39,28 @@ class Chat(TemplateView, Location):
         return render(request, self.template_name, {'loc': province})
 
 
+class Province(TemplateView, Location):
+    template_name = "province.html"
+
+    def get(self, request, **kwargs):
+        province = get_loc(request)
+        page_loc = kwargs.get('province', '').capitalize().replace("_", " ")
+        words = page_loc.split(" ")
+        caps = []
+        for word in words:
+            if word != "and":
+                caps.append(word.capitalize())
+            else:
+                caps.append(word)
+        page_loc = " ".join(caps)
+
+        print(page_loc)
+        if page_loc not in ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", \
+                "Nova Scotia", "Ontario", "Prince Edward Island", "Northwest Territories", "Yukon", "Nunavut"]:
+            return render(request, "404.html", {'loc': province, 'page_loc': page_loc})
+        return render(request, self.template_name, {'loc': province, 'page_loc': page_loc})
+
+
 class Why(TemplateView, Location):
     template_name = "why.html"
 
