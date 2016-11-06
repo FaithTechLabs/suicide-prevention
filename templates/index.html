@@ -7,10 +7,80 @@
     <a id='phoneButton' href='tel:+12267897545' class='hide-for-medium btn'>
       <i class='fa fa-phone'></i> Call (call center name)
     </a>
+    <a id='chatButton' href='/chat/' class='hide-for-medium btn'>
+      <i class='fa fa-commenting-o'></i> Chat Now
+    </a>
     <iframe class='hide-for-small-only' width="560" height="315" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
-    <iframe class='hide-for-medium' width="300" height="200" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
+    <!--<iframe class='hide-for-medium' width="300" height="200" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>-->
   </div>
 </div>
+
+<div class="show-for-medium-only">
+    <a id='phoneButton' href='tel:+12267897545' class='btn'>
+      <i class='fa fa-phone'></i> Call (call center name)
+    </a>
+    <a id='chatButton' href='/chat/' class='btn success'>
+      <i class='fa fa-commenting-o'></i> Chat Now
+    </a>
+</div>
+<br>
+<div class="struggle">
+    <h2>Are you struggling with?</h2>
+</div>
+
+<br>
+<div class="btn-group" role="group" aria-label="...">
+  <button id="btn1" type="button" class="btn btn-default active">Depression</button>
+  <button id="btn2" type="button" class="btn btn-default">Finances</button>
+  <button id="btn3" type="button" class="btn btn-default">Bullying</button>
+</div>
+
+<div class='main'>
+  <div class='content-container'>
+	  <div id="tab1">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum vehicula odio, a congue enim molestie at. Phasellus interdum quis quam id ultrices. Praesent at mi interdum, malesuada dui accumsan, tincidunt risus. Nam sit amet ante sit amet turpis placerat rutrum eget non risus. Ut dictum magna purus.</p>
+	  </div>
+	  <div id="tab2">
+		<p>Ut dictum magna purus. Morbi finibus facilisis quam et convallis. Sed at placerat ligula. Etiam a sem mi. Vestibulum at venenatis tortor. Suspendisse potenti. Etiam erat est, tincidunt in posuere eu, imperdiet iaculis dui. Nam ut odio at neque gravida porttitor vel id ante. Sed semper nec dolor ultricies placerat. </p>
+	  </div>
+	  <div id="tab3">
+		<p>Pellentesque eu rhoncus velit, nec condimentum leo. Suspendisse feugiat tortor ultricies, venenatis massa sed, ultrices quam. Nullam vel elementum dui. Nullam nisi odio, imperdiet ut nisl vitae, ultrices consectetur ipsum. Donec ut magna et arcu tincidunt semper. Curabitur efficitur mauris ut mi mattis, nec aliquet metus accumsan.</p>
+	  </div>
+   </div>
+</div>
+
+<script>
+   $(document).ready(function() {
+		$("#tab2").hide();
+		$("#tab3").hide();
+		$( "#btn1" ).click(function(){
+				$("#btn1").addClass("active");
+				$("#btn2").removeClass("active");
+				$("#btn3").removeClass("active");
+				$("#tab1").show();
+				$("#tab2").hide();
+				$("#tab3").hide();
+		});
+		$("#btn2").click(function() {
+				$("#btn1").removeClass("active");
+				$("#btn2").addClass("active");
+				$("#btn3").removeClass("active");
+				$("#tab1").hide();
+				$("#tab2").show();
+				$("#tab3").hide();
+		});
+		$("#btn3").click(function() {
+				$("#btn1").removeClass("active");
+				$("#btn2").removeClass("active");
+				$("#btn3").addClass("active");
+				$("#tab1").hide();
+				$("#tab2").hide();
+				$("#tab3").show();
+		});
+      $(document).foundation();
+   })
+</script>
+<!--
 <div class='main'>
   <div class='content-container'>
         <h3>Heartfelt title here</h3>
@@ -20,6 +90,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>
+-->
 
 <script>
   initLocation('{{ loc }}');
