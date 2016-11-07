@@ -19,7 +19,7 @@ class MainSitemap(Sitemap):
         return ['/', '/why/', '/chat/', '/why_we_are_here/', '/resource/']
 
     def location(self, item):
-	return item
+        return item
 
 class ProvinceSitemap(Sitemap):
     """
@@ -34,5 +34,5 @@ class ProvinceSitemap(Sitemap):
         return pages
 
     def location(self, item):
-	return "/province" + item
+        return "/province" + item
 
