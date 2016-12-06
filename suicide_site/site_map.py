@@ -16,7 +16,7 @@ class MainSitemap(Sitemap):
     priority = 1.0
 
     def items(self):
-        return ['/', '/why/', '/chat/', '/why_we_are_here/', '/resource/']
+        return ['/', '/why/', '/chat/', '/why_we_are_here/', '/resources/']
 
     def location(self, item):
         return item
