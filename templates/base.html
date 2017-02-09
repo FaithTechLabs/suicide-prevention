@@ -11,12 +11,11 @@
     {% endblock %}
     <title>{% block title %}How to kill yourself{% endblock %}</title>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href={% static "css/foundation.min.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/getbase-style.css" %}>
     <link rel="stylesheet" type="text/css" href={% static "css/font-awesome.min.css" %}>
    <link rel="stylesheet" type="text/css" href={% static "css/app.css" %}>
     <script src={% static "js/vendor/jquery.js" %}></script>
     <script src={% static "js/vendor/what-input.js" %}></script>
-    <script src={% static "js/vendor/foundation.min.js" %}></script>
     <script src={% static "js/app.js" %}></script>
   </head>
   <body>
@@ -38,8 +37,8 @@
     {% endblock %}
     <div class='footer'>
       <div class='content-container'>
-        <div class='row'>
-          <div class='columns small-12 medium-8'>
+        <div class='row clear'>
+          <div class='col-12 col-8-m'>
             <h6>Resources By Location</h6>
             <ul class='locations'>
               <li>
@@ -83,7 +82,7 @@
               </li>
             </ul>
           </div>
-          <div class='columns small-12 medium-4'>
+          <div class='col-12 col-4-m'>
             <h6>About Us</h6>
             <ul>
               <li>

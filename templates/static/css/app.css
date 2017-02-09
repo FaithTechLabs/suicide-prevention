@@ -25,6 +25,10 @@ body {
   z-index: 1;
 }
 
+.white {
+  color: #fff;
+}
+
 .nav .content-container {
   text-align: left;
 }
