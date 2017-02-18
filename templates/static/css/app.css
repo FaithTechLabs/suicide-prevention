@@ -73,7 +73,8 @@ ul {
 .banner h2,
 .banner h1,
 .struggle h2,
-.content-container h3 {
+.content-container h3,
+button h5 {
   /*font-family: sans-serif;*/
   font-family: 'Gloria Hallelujah', sans-serif;
   /*font-weight: 300;*/
@@ -144,7 +145,7 @@ ul {
   color: #fff;
   display: inline-block;
   /*margin-top: 0.5rem;*/
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
 }
 
@@ -153,20 +154,12 @@ ul {
   color: #fff;
 }
 
-.btn-group .btn:not(.active),
-.btn-group .btn:not(.active):focus {
-  background-color: #4a5c81;
-  color: rgba(255, 255, 255, 0.8);
+.btn-group {
+  margin-bottom: 2rem;
 }
 
-.btn-group .btn:not(.active):hover {
-  background-color: #556fa4;
-  color: #fff;
-}
-
-.btn-group .btn.active {
-  background-color: #353c4b;
-  text-decoration: underline;
+.btn-group .btn {
+  padding: 1rem 2rem 0.5rem;
 }
 
 .hidden { display: none; }
@@ -177,6 +170,10 @@ ul {
 
 .resources .columns img {
   max-width: 100%;
+}
+
+.tab-main {
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 641px) {
@@ -204,9 +201,7 @@ ul {
   }
 
   .btn-group .btn {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    margin: 0;
+    margin: 0.25rem 0.5rem;
   }
 
   .hope-line-iframe {
@@ -237,8 +232,9 @@ ul {
   .nav a { width: 100%; }
 
   .btn-group .btn {
-    margin: 0 0.5rem 0.25rem;
-    width: calc(100% - 1rem);
+    border-radius: 0;
+    margin: 0 0 0.1rem;
+    width: 100%;
   }
 
   .hope-line-iframe {

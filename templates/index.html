@@ -38,15 +38,25 @@
 
 <br>
 <div class="btn-group" role="group" aria-label="...">
-  <button id="depression" type="button" class="btn btn-default active">Depression</button>
-  <button id="finances" type="button" class="btn btn-default">Finances</button>
-  <button id="relationships" type="button" class="btn btn-default">Relationship Problems</button>
-  <button id="loneliness" type="button" class="btn btn-default">Loneliness</button>
-  <button id="bullying" type="button" class="btn btn-default">Bullying</button>
+  <button id="depression" type="button" class="btn btn-default active">
+    <h5>Depression</h5>
+  </button>
+  <button id="finances" type="button" class="btn btn-default">
+    <h5>Finances</h5>
+  </button>
+  <button id="relationships" type="button" class="btn btn-default">
+    <h5>Relationship Problems</h5>
+  </button>
+  <button id="loneliness" type="button" class="btn btn-default">
+    <h5>Loneliness</h5>
+  </button>
+  <button id="bullying" type="button" class="btn btn-default">
+    <h5>Bullying</h5>
+  </button>
 </div>
 
-<div class='main'>
-  <div class='content-container'>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
 	  <div id="tab-depression" class='tab'>
       <h3>Depression</h3>
       <p>
@@ -67,6 +77,10 @@
         <a href='http://www.supportgroupscentral.com/depression/'>http://www.supportgroupscentral.com/depression/</a>
       </p>
 	  </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container'>
 	  <div id="tab-finances" class='tab'>
 		  <h3>Finances</h3>
       <p>
@@ -85,6 +99,10 @@
         <a href='https://issuesiface.com/debt'>https://issuesiface.com/debt</a>
       </p>
 	  </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
 	  <div id="tab-relationships" class='tab'>
 		  <h3>Relationship problems</h3>
       <p>
@@ -106,6 +124,10 @@
         <a href='http://www.helpguide.org/articles/family-divorce/coping-with-a-breakup-or-divorce.htm'>http://www.helpguide.org/articles/family-divorce/coping-with-a-breakup-or-divorce.htm</a>
       </p>
 	  </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
     <div id='tab-loneliness' class='tab'>
       <h3>Loneliness</h3>
       <p>
@@ -127,6 +149,10 @@
         <a href='http://www.counseling.ufl.edu/cwc/how-to-deal-with-loneliness.aspx'>http://www.counseling.ufl.edu/cwc/how-to-deal-with-loneliness.aspx</a>
       </p>
     </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
     <div id="tab-bullying" class='tab'>
       <h3>Bullying</h3>
       <p>
@@ -154,13 +180,11 @@
 
 <script>
   var clickTab = function(index) {
-      $('.btn-group .btn').removeClass('active');
-      $('#' + index).addClass('active');
-      $('.tab').hide();
-      $('#tab-' + index).show();
+    $('html, body').animate({
+      scrollTop: $("#tab-" + index).offset().top - 30
+    }, 750);
   }
    $(document).ready(function() {
-    clickTab('depression');
 		$("#relationships").click(function(){
       clickTab('relationships');
 		});
