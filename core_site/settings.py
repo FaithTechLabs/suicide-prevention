@@ -8,7 +8,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-SITE_ID = 0
+SITE_ID = 1
+SITE = "core"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '3$0+y($j4@22)e$3c=3j^!#pr&#mdc#%xvrp13b9$g4!kb*af8'
@@ -19,6 +20,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "howtokillyourself.org",
     "dev.howtokillyourself.org",
+    "localhost",
 ]
 
 
@@ -35,20 +37,34 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+
     # libraries
-    'cms',  # django CMS
-    'treebeard',
-    'menus',
-    'sekizai',
-    #'djangocms_text_ckeditor',
+    'taggit',
+    'modelcluster',
+
     # apps
     'suicide_site',
+    'articles',
+
+    # wagtail cms
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
 ]
+
+WAGTAIL_SITE_NAME = 'How to Kill Yourself'
 
 GEOIP_PATH = os.path.realpath(os.path.join(BASE_DIR, "geoip/GeoLiteCity.dat"))
 
 MIDDLEWARE_CLASSES = [
-    'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,10 +74,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'core_site.urls'
@@ -81,8 +95,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'sekizai.context_processors.sekizai',
-                'cms.context_processors.cms_settings',
             ],
         },
     },
@@ -110,7 +122,7 @@ DATABASES = {
         'USER': 'gregmccoy',
         'PASSWORD': 'Conestoga1',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': 5432,
     }
 }
 
@@ -147,11 +159,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'images')
+MEDIA_URL = "/media/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates/static"),
 ]
+
