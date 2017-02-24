@@ -11,6 +11,10 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
 
 # Create your models here.
+class HomeArticle(Page):
+    template = 'articles/home.html'
+
+# Create your models here.
 class ContentArticle(Page):
     template = 'articles/article.html'
     date = models.DateField()

@@ -12,5 +12,8 @@ Write in Django 1.10, Foundation
 To install the requirements
 `pip3 install requirements.txt`
 
+To run database migrations
+`python3 manage.py migrate``
+
 To run the suicide site:
 `python3 manage.py runserver --settings=suicide_site.settings`
