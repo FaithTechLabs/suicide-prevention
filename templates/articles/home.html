@@ -1,0 +1,24 @@
+{% extends "articles/base.html" %}
+{% load article_tags %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+<div style='text-align: left;'>
+  <div class="row">
+    <div class="medium-offset-2 medium-8 columns">
+      <h1>Articles</h1>
+      {% get_articles as articles %}
+      {% for article in articles %}
+        <a href="/articles/{{ article.slug }}">{{ article.title }}</a>
+
+        <!-- Displays the first 15 characters of the body -->
+        <p>{{ article.body|slice:":15" }}...</p>
+        <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

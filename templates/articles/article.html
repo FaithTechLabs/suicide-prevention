@@ -1,0 +1,27 @@
+{% extends "articles/base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+<div style='text-align: left;'>
+  <div class="row">
+    <div class="medium-offset-2 medium-8 columns">
+      <h1>{{ page.title }}</h1>
+      <p>{{ page.date }} - By: {{ page.author }}</p>
+      {{ page.body }}
+    </div>
+    <!--<div class="medium-3 columns">
+      <p>This is the navigation!</p>
+      <ul>
+        <li><a href="/articles/1/">Article #1</a></li>
+        <li><a href="/articles/1/">Article #2</a></li>
+        <li><a href="/articles/1/">Article #3</a></li>
+        <li><a href="/articles/1/">Article #4</a></li>
+        <li><a href="/articles/1/">Article #5</a></li>
+      </ul>
+    </div>-->
+  </div>
+</div>
+{% endblock %}
