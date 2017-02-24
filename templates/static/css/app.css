@@ -20,9 +20,19 @@ body {
 .content-container {
   margin: 0 auto;
   max-width: 70rem;
+  position: relative;
   text-align: center;
   width: 100%;
   z-index: 1;
+}
+
+.cover {
+  background-color: rgba(36, 38, 42, 0.3);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .nav .content-container {
@@ -68,6 +78,12 @@ ul {
   background: -webkit-linear-gradient(top,  #353c4b 0%,#24262a 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom,  #353c4b 0%,#24262a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353c4b', endColorstr='#24262a',GradientType=0 ); /* IE6-9 */
+}
+
+.banner.window-img {
+  background: url("/static/images/woman-window.jpg") no-repeat center;
+  background-size: cover;
+  position: relative;
 }
 
 .banner h2,
