@@ -10,7 +10,7 @@ Write in Django 1.10, Foundation
 # INSTALL
 
 To install the requirements
-`pip3 install requirements.txt`
+`pip3 install -r requirements.txt`
 
 To run database migrations
 `python3 manage.py migrate``
