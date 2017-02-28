@@ -15,7 +15,7 @@ SITE = "core"
 SECRET_KEY = '3$0+y($j4@22)e$3c=3j^!#pr&#mdc#%xvrp13b9$g4!kb*af8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "howtokillyourself.org",
@@ -164,6 +164,7 @@ MEDIA_URL = "/media/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = "/var/www/static/"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates/static"),
