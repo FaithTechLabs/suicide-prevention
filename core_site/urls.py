@@ -12,7 +12,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^s4hadmin/', include(admin.site.urls)),
 ]
 
 # howtokillyourself.org
@@ -21,7 +21,7 @@ if settings.SITE == "howtokillyourself.org":
         url(r'^', include('suicide_site.urls', namespace="suicide_site")),
     ]
 urlpatterns += [
-    url(r'^cms/', include(wagtailadmin_urls)),
+    url(r'^s4hcms/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^articles/', include(wagtail_urls)),
 
