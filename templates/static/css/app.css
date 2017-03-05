@@ -132,6 +132,11 @@ ul {
   position: relative;
 }
 
+.banner.window-img h2,
+.banner.window-img h1 {
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 .banner h2,
 .banner h1,
 .struggle h2,
@@ -162,6 +167,11 @@ button h5 {
   text-align: left;
   width: calc(100% - 1rem);
   word-wrap: break-word;
+}
+
+.main .content-container,
+.main.tab-main:nth-child(even) {
+  background-color: #353c4b;
 }
 
 .main .content-container img {
