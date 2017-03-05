@@ -17,6 +17,10 @@ body {
   text-align: center;
 }
 
+.relative {
+  position: relative;
+}
+
 .content-container {
   margin: 0 auto;
   max-width: 70rem;
@@ -28,11 +32,53 @@ body {
 
 .cover {
   background-color: rgba(36, 38, 42, 0.3);
+}
+
+.cover,
+.img-container {
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.btn-group .btn {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-group .btn:hover .cover {
+  background-color: rgba(36, 38, 42, 0.1);
+}
+
+.img-container {
+  filter: blur(5px);
+}
+
+#depression .img-container {
+  background: url("/static/images/rain-window.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#finances .img-container {
+  background: url("/static/images/child.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#relationships .img-container {
+  background: url("/static/images/woman-window.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#loneliness .img-container {
+  background: url("/static/images/beach.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#bullying .img-container {
+  background: url("/static/images/feet-forward.jpg") no-repeat center;
+  background-size: cover;
 }
 
 .nav .content-container {
@@ -132,6 +178,21 @@ button h5 {
   max-height: 15rem;
 }
 
+.main.tab-main {
+  margin: 0;
+  padding: 0;
+}
+
+.main.tab-main .content-container {
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.main.tab-main:nth-child(odd) .content-container {
+  background-color: transparent;
+}
+
 .footer {
   padding: 1rem;
 }
@@ -186,10 +247,6 @@ button h5 {
 
 .resources .columns img {
   max-width: 100%;
-}
-
-.tab-main {
-  margin-bottom: 2rem;
 }
 
 @media (min-width: 641px) {

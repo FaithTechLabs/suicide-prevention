@@ -88,7 +88,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'suicide_db',
-        'USER': 'gregmccoy',
+        'USER': 'sarahgault',
         'PASSWORD': 'Conestoga1',
         'HOST': 'localhost',
         'PORT': '',
