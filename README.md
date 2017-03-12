@@ -17,3 +17,6 @@ To run database migrations
 
 To run the suicide site:
 `python3 manage.py runserver --settings=suicide_site.settings`
+
+Create a test user
+`python3 manage.py createsuperuser --username=test --email=test@example.com`
