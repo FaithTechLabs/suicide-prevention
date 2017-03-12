@@ -9,12 +9,18 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, Inli
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
+from modelcluster.fields import ParentalKey
+from modelcluster.tags import ClusterTaggableManager
+from taggit.models import TaggedItemBase
 
-# Create your models here.
 class HomeArticle(Page):
     template = 'articles/home.html'
 
-# Create your models here.
+
+class ArticleTag(TaggedItemBase):
+        content_object = ParentalKey('ContentArticle', related_name='tagged_items')
+
+
 class ContentArticle(Page):
     template = 'articles/article.html'
     date = models.DateField()
@@ -24,6 +30,7 @@ class ContentArticle(Page):
         ('image', ImageChooserBlock(icon='image', template='wagtail_blocks/image.html')),
         ('full_width_image', ImageChooserBlock(icon='image', template='wagtail_blocks/full_width_image.html')),
     ])
+    tags = ClusterTaggableManager(through=ArticleTag, blank=True)
 
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -42,6 +49,7 @@ class ContentArticle(Page):
     ]
     content_panels = Page.content_panels + [
         FieldPanel('date'),
+        FieldPanel('tags'),
         FieldPanel('author'),
         StreamFieldPanel('body'),
         InlinePanel('related_links', label="Related links"),

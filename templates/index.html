@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class='banner'>
+<div class='banner window-img'>
   <div class='content-container'>
     <h2>Are you asking how to kill yourself?</h2>
     <h1>You're not alone.</h1>
@@ -14,9 +14,11 @@
     <iframe class='hide-for-small-only' width="560" height="315" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
     <iframe class='hide-for-medium' width="280" height="180" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
   </div>
+  <div class='cover'></div>
 </div>
 
 <div class="hide-for-small-only">
+  <br>
   <a href='tel:+12267897545' class='btn phone-btn'>
     <i class='fa fa-phone hide-for-medium'></i>
     <span class='name'>Call</span>
@@ -38,15 +40,45 @@
 
 <br>
 <div class="btn-group" role="group" aria-label="...">
-  <button id="depression" type="button" class="btn btn-default active">Depression</button>
-  <button id="finances" type="button" class="btn btn-default">Finances</button>
-  <button id="relationships" type="button" class="btn btn-default">Relationship Problems</button>
-  <button id="loneliness" type="button" class="btn btn-default">Loneliness</button>
-  <button id="bullying" type="button" class="btn btn-default">Bullying</button>
+  <button id="depression" type="button" class="btn btn-default active">
+    <div class='img-container'></div>
+    <div class='cover'></div>
+    <div class='relative'>
+      <h5>Depression</h5>
+    </div>
+  </button>
+  <button id="finances" type="button" class="btn btn-default">
+    <div class='img-container'></div>
+    <div class='cover'></div>
+    <div class='relative'>
+      <h5>Finances</h5>
+    </div>
+  </button>
+  <button id="relationships" type="button" class="btn btn-default">
+    <div class='img-container'></div>
+    <div class='cover'></div>
+    <div class='relative'>
+      <h5>Relationship Problems</h5>
+    </div>
+  </button>
+  <button id="loneliness" type="button" class="btn btn-default">
+    <div class='img-container'></div>
+    <div class='cover'></div>
+    <div class='relative'>
+      <h5>Loneliness</h5>
+    </div>
+  </button>
+  <button id="bullying" type="button" class="btn btn-default">
+    <div class='img-container'></div>
+    <div class='cover'></div>
+    <div class='relative'>
+      <h5>Bullying</h5>
+    </div>
+  </button>
 </div>
 
-<div class='main'>
-  <div class='content-container'>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
 	  <div id="tab-depression" class='tab'>
       <h3>Depression</h3>
       <p>
@@ -67,6 +99,10 @@
         <a href='http://www.supportgroupscentral.com/depression/'>http://www.supportgroupscentral.com/depression/</a>
       </p>
 	  </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container'>
 	  <div id="tab-finances" class='tab'>
 		  <h3>Finances</h3>
       <p>
@@ -85,6 +121,10 @@
         <a href='https://issuesiface.com/debt'>https://issuesiface.com/debt</a>
       </p>
 	  </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
 	  <div id="tab-relationships" class='tab'>
 		  <h3>Relationship problems</h3>
       <p>
@@ -106,6 +146,10 @@
         <a href='http://www.helpguide.org/articles/family-divorce/coping-with-a-breakup-or-divorce.htm'>http://www.helpguide.org/articles/family-divorce/coping-with-a-breakup-or-divorce.htm</a>
       </p>
 	  </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
     <div id='tab-loneliness' class='tab'>
       <h3>Loneliness</h3>
       <p>
@@ -127,6 +171,10 @@
         <a href='http://www.counseling.ufl.edu/cwc/how-to-deal-with-loneliness.aspx'>http://www.counseling.ufl.edu/cwc/how-to-deal-with-loneliness.aspx</a>
       </p>
     </div>
+  </div>
+</div>
+<div class='main tab-main'>
+  <div class='content-container tab-content-container'>
     <div id="tab-bullying" class='tab'>
       <h3>Bullying</h3>
       <p>
@@ -154,13 +202,11 @@
 
 <script>
   var clickTab = function(index) {
-      $('.btn-group .btn').removeClass('active');
-      $('#' + index).addClass('active');
-      $('.tab').hide();
-      $('#tab-' + index).show();
+    $('html, body').animate({
+      scrollTop: $("#tab-" + index).offset().top - 30
+    }, 750);
   }
    $(document).ready(function() {
-    clickTab('depression');
 		$("#relationships").click(function(){
       clickTab('relationships');
 		});
@@ -179,17 +225,6 @@
     $(document).foundation();
    })
 </script>
-<!--
-<div class='main'>
-  <div class='content-container'>
-        <h3>Heartfelt title here</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <h3>Heartfelt title here</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-</div>
--->
 
 <script>
   initLocation('{{ loc }}');
