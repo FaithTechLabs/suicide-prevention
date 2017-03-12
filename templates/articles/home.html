@@ -8,15 +8,19 @@
 {% block content %}
 <div style='text-align: left;'>
   <div class="row">
+    <h1 class="text-center">Articles</h1>
+
+    <!-- Navigation on /article/ page -->
     <div class="medium-offset-2 medium-8 columns">
-      <h1>Articles</h1>
       {% get_articles as articles %}
       {% for article in articles %}
-        <a href="/articles/{{ article.slug }}">{{ article.title }}</a>
-
-        <!-- Displays the first 15 characters of the body -->
-        <p>{{ article.body|slice:":15" }}...</p>
-        <br>
+        <a href="/articles/{{ article.slug }}">
+          <div class="medium-3 columns articles-list">
+            <b>{{ article.title }}</b>
+            <!-- Displays the first 15 characters of the body -->
+            {{ article.body|slice:":15" }}...
+          </div>
+        </a>
       {% endfor %}
     </div>
   </div>
