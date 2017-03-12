@@ -17,12 +17,68 @@ body {
   text-align: center;
 }
 
+.relative {
+  position: relative;
+}
+
 .content-container {
   margin: 0 auto;
   max-width: 70rem;
+  position: relative;
   text-align: center;
   width: 100%;
   z-index: 1;
+}
+
+.cover {
+  background-color: rgba(36, 38, 42, 0.3);
+}
+
+.cover,
+.img-container {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.btn-group .btn {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-group .btn:hover .cover {
+  background-color: rgba(36, 38, 42, 0.1);
+}
+
+.img-container {
+  filter: blur(5px);
+}
+
+#depression .img-container {
+  background: url("/static/images/rain-window.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#finances .img-container {
+  background: url("/static/images/child.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#relationships .img-container {
+  background: url("/static/images/woman-window.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#loneliness .img-container {
+  background: url("/static/images/beach.jpg") no-repeat center;
+  background-size: cover;
+}
+
+#bullying .img-container {
+  background: url("/static/images/feet-forward.jpg") no-repeat center;
+  background-size: cover;
 }
 
 .nav .content-container {
@@ -70,10 +126,22 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353c4b', endColorstr='#24262a',GradientType=0 ); /* IE6-9 */
 }
 
+.banner.window-img {
+  background: url("/static/images/woman-window.jpg") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+
+.banner.window-img h2,
+.banner.window-img h1 {
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 .banner h2,
 .banner h1,
 .struggle h2,
-.content-container h3 {
+.content-container h3,
+button h5 {
   /*font-family: sans-serif;*/
   font-family: 'Gloria Hallelujah', sans-serif;
   /*font-weight: 300;*/
@@ -101,6 +169,11 @@ ul {
   word-wrap: break-word;
 }
 
+.main .content-container,
+.main.tab-main:nth-child(even) {
+  background-color: #353c4b;
+}
+
 .main .content-container img {
   margin: 1rem 0;
   max-width: 15rem;
@@ -113,6 +186,21 @@ ul {
   margin: 0.5rem 0 0.5rem 1rem;
   max-width: 25rem;
   max-height: 15rem;
+}
+
+.main.tab-main {
+  margin: 0;
+  padding: 0;
+}
+
+.main.tab-main .content-container {
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.main.tab-main:nth-child(odd) .content-container {
+  background-color: transparent;
 }
 
 .footer {
@@ -144,7 +232,7 @@ ul {
   color: #fff;
   display: inline-block;
   /*margin-top: 0.5rem;*/
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
 }
 
@@ -153,20 +241,12 @@ ul {
   color: #fff;
 }
 
-.btn-group .btn:not(.active),
-.btn-group .btn:not(.active):focus {
-  background-color: #4a5c81;
-  color: rgba(255, 255, 255, 0.8);
+.btn-group {
+  margin-bottom: 2rem;
 }
 
-.btn-group .btn:not(.active):hover {
-  background-color: #556fa4;
-  color: #fff;
-}
-
-.btn-group .btn.active {
-  background-color: #353c4b;
-  text-decoration: underline;
+.btn-group .btn {
+  padding: 1rem 2rem 0.5rem;
 }
 
 .hidden { display: none; }
@@ -204,9 +284,7 @@ ul {
   }
 
   .btn-group .btn {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    margin: 0;
+    margin: 0.25rem 0.5rem;
   }
 
   .hope-line-iframe {
@@ -237,8 +315,9 @@ ul {
   .nav a { width: 100%; }
 
   .btn-group .btn {
-    margin: 0 0.5rem 0.25rem;
-    width: calc(100% - 1rem);
+    border-radius: 0;
+    margin: 0 0 0.1rem;
+    width: 100%;
   }
 
   .hope-line-iframe {
