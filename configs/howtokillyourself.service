@@ -1,0 +1,15 @@
+[Unit]
+Description=Howtokillyourself.org
+Requires=howtokillyourself.socket
+After=network.target
+
+[Service]
+PIDFile=/tmp/pid-gunicorn
+User=greg
+Group=users
+WorkingDirectory=/home/greg/suicide-prevention/
+ExecStart=/home/greg/venv/bin/gunicorn -w 4 --pid /tmp/pid-gunicorn suicide_site.wsgi:application
+
+
+[Install]
+WantedBy=multi-user.target

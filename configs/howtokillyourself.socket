@@ -1,0 +1,10 @@
+[Unit]
+Description=Howtokillyourself socket
+
+[Socket]
+ListenStream=/run/howtokillyourself.socket
+ListenStream=0.0.0.0:9040
+ListenStream=[::]:8040
+
+[Install]
+WantedBy=sockets.target
