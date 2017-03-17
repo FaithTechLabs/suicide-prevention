@@ -16,11 +16,13 @@ SECRET_KEY = '3$0+y($j4@22)e$3c=3j^!#pr&#mdc#%xvrp13b9$g4!kb*af8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = [
     "howtokillyourself.org",
     "dev.howtokillyourself.org",
     "localhost",
+    "0.0.0.0",
 ]
 
 
@@ -122,6 +124,7 @@ DATABASES = {
         'USER': 'gregmccoy',
         'PASSWORD': 'Conestoga1',
         'HOST': 'localhost',
+        # 'HOST': 'db',
         'PORT': 5432,
     }
 }
