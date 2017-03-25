@@ -6,18 +6,48 @@
 
 {% block title %}{{ page.title }}{% endblock %}
 {% block content %}
+<div class='banner articles-font'>
+  <div class='content-container'>
+    <h1>Hopeful, Helpful, and Friendly Articles</h1>
+  </div>
+</div>
+<div class='main row articles-font'>
+  <div class='content-container columns medium-8'>
+    {% get_articles as articles %}
+    {% for article in articles %}
+      <div class="">
+        <a href="/articles/{{ article.slug }}">
+          <h2>{{ article.title }}</h2>
+          <h6>
+            {{ article.date }} by {{ article.author }}
+          </h6>
+        </a>
+        {{ article.body|slice:":15" }}...
+      </div>
+    {% endfor %}
+  </div>
+  <div class='content-container columns medium-4'>
+    <h4>Recent Articles</h4>
+    {% get_articles as articles %}
+    {% for article in articles %}
+      <hr>
+      <a href="/articles/{{ article.slug }}">
+        <h5>{{ article.title }}</h5>
+        <h6>{{ article.date }}</h6>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+<!--
 <div style='text-align: left;'>
   <div class="row">
     <h1 class="text-center">Articles</h1>
-
-    <!-- Navigation on /article/ page -->
-    <div class="medium-offset-2 medium-8 columns">
+    <div class="columns">
       {% get_articles as articles %}
       {% for article in articles %}
         <a href="/articles/{{ article.slug }}">
-          <div class="medium-3 columns articles-list">
+          <div class="">
             <b>{{ article.title }}</b>
-            <!-- Displays the first 15 characters of the body -->
             {{ article.body|slice:":15" }}...
           </div>
         </a>
@@ -25,4 +55,5 @@
     </div>
   </div>
 </div>
+-->
 {% endblock %}

@@ -12,6 +12,30 @@
 {% wagtailuserbar %}
 {% endif %}
 
+<div class='banner articles-font article-page'>
+  <div class='content-container' style='text-align: left;'>
+    <h1>{{ page.title }}</h1>
+    <h4>{{ page.date }} by {{page.author }}</h4>
+  </div>
+</div>
+<div class='main row articles-font'>
+  <div class='content-container article columns'>
+    {{ page.body }}
+  </div>
+  <div class='content-container columns medium-4'>
+    <h4>Recent Articles</h4>
+    {% get_articles as articles %}
+    {% for article in articles %}
+      <hr>
+      <a href="/articles/{{ article.slug }}">
+        <h5>{{ article.title }}</h5>
+        <h6>{{ article.date }}</h6>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+<!--
 <div style='text-align: left;'>
   <div class="row">
     <div class="medium-offset-2 medium-8 columns">
@@ -22,7 +46,6 @@
     <div class="medium-2 columns">
       <h3>Articles</h3>
 
-      <!-- Article navigation on right side of each article -->
       <ul>
       {% get_articles as articles %}
       {% for article in articles %}
@@ -32,4 +55,5 @@
     </div>
   </div>
 </div>
+-->
 {% endblock %}

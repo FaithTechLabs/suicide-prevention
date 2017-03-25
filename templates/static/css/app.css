@@ -126,6 +126,10 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353c4b', endColorstr='#24262a',GradientType=0 ); /* IE6-9 */
 }
 
+.banner.article-page {
+  padding-bottom: 1rem;
+}
+
 .banner.window-img {
   background: url("/static/images/woman-window.jpg") no-repeat center;
   background-size: cover;
@@ -147,12 +151,23 @@ button h5 {
   /*font-weight: 300;*/
 }
 
-.banner h2 {
+.articles-font h1,
+.articles-font .banner h1,
+.articles-font h2,
+.articles-font .banner h2,
+.articles-font h3,
+.articles-font h4,
+.articles-font h5,
+.articles-font h6 {
+  font-family: 'Salsa', serif;
+}
+
+.banner:not(.articles-font) h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.banner h1 {
+.banner:not(.articles-font) h1 {
   font-size: 2.5rem;
 }
 
@@ -174,10 +189,14 @@ button h5 {
   background-color: #353c4b;
 }
 
-.main .content-container img {
+.main:not(.articles-font) .content-container img {
   margin: 1rem 0;
   max-width: 15rem;
   max-height: 4rem;
+}
+
+.main .content-container.article {
+  padding-top: 0.5rem;
 }
 
 .main .content-container .tab img {
@@ -275,12 +294,12 @@ button h5 {
     text-align: left;
   }
 
-  .banner h2 {
+  .banner:not(.articles-font) h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
 
-  .banner h1 {
+  .banner:not(.articles-font) h1 {
     font-size: 5rem;
   }
 
@@ -298,6 +317,14 @@ button h5 {
     min-width: 450px;
     width: 40%;
   }
+
+  .main.articles-font .content-container:first-child {
+    width: 63%;
+  }
+
+  .main.articles-font .content-container:not(:first-child) {
+    width: 30%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -305,7 +332,7 @@ button h5 {
     padding: 1rem;
   }
 
-  .main .content-container .tab img {
+  .main:not(.articles-font) .content-container .tab img {
     display: block;
     float: none;
     margin: 1rem auto;
