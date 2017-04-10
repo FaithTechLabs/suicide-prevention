@@ -1,22 +1,17 @@
 import os
 
+PRODUCTION = os.environ.get("PRODUCTION", "")
+DOCKER = os.environ.get("DOCKER", "")
+
 gettext = lambda s: s
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 SITE_ID = 1
 SITE = "core"
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3$0+y($j4@22)e$3c=3j^!#pr&#mdc#%xvrp13b9$g4!kb*af8'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
 
 ALLOWED_HOSTS = [
     "howtokillyourself.org",
@@ -24,7 +19,6 @@ ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
 ]
-
 
 # Application definition
 
@@ -124,7 +118,6 @@ DATABASES = {
         'USER': 'gregmccoy',
         'PASSWORD': 'Conestoga1',
         'HOST': 'localhost',
-        # 'HOST': 'db',
         'PORT': 5432,
     }
 }
@@ -165,11 +158,19 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(PROJECT_PATH, 'images')
 MEDIA_URL = "/media/"
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = "/var/www/static/"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates/static"),
 ]
+
+if PRODUCTION:
+    DEBUG = False
+    from production_settings import *
+else:
+    DEBUG = True
+    SECRET_KEY = '3$0+y($j4@22)e$3c=3j^!#pr&#mdc#%xvrp13b9$g4!kb*af8'
+
+if DOCKER:
+    DATABASES["default"]["HOST"] = "db"
 

@@ -25,11 +25,6 @@ Create a test user
 
 If you are new to this project the fastest way to get a development environment running is to download docker for ([mac](https://docs.docker.com/docker-for-mac/)/[windows](https://docs.docker.com/docker-for-windows/)/[linux](https://docs.docker.com/engine/installation/linux/)).
 
-In `core_site/settings.py` uncomment these two lines. They should be around line 18 and 125.
-
-    # DEBUG = True
-    # 'HOST': 'db',
-
 Use the following commands from the project root folder.
 The site will be available at `http://0.0.0.0:8000`.
 

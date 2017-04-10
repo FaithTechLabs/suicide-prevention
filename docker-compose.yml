@@ -7,6 +7,8 @@ services:
       POSTGRES_DB: suicide_db
       POSTGRES_PASSWORD: Conestoga1
   web:
+    environment:
+      - DOCKER=1
     build:
       context: .
       dockerfile: .docker/Dockerfile
