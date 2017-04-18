@@ -12,9 +12,17 @@ html {
 }
 
 body {
-  background-color: #24262a;
   color: #fff;
   text-align: center;
+}
+
+body,
+.nav {
+  background-color: #24262a;
+}
+
+.articles-font {
+  color: #333;
 }
 
 .relative {
@@ -126,9 +134,14 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353c4b', endColorstr='#24262a',GradientType=0 ); /* IE6-9 */
 }
 
-.banner.article-page {
-  padding-bottom: 1rem;
+.articles-font.banner {
+  background: #353c4b;
+  color: #fff;
 }
+
+/*.banner.article-page {
+  padding-bottom: 1rem;
+}*/
 
 .banner.window-img {
   background: url("/static/images/woman-window.jpg") no-repeat center;
@@ -189,6 +202,10 @@ button h5 {
   background-color: #353c4b;
 }
 
+.articles-font.main .content-container {
+  background-color: #fff;
+}
+
 .main:not(.articles-font) .content-container img {
   margin: 1rem 0;
   max-width: 15rem;
@@ -232,6 +249,11 @@ button h5 {
 .content-container a,
 .content-container a:focus {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.articles-font .content-container a,
+.articles-font .content-container a:focus {
+  color: #222;
 }
 
 .content-container a:hover,
@@ -360,5 +382,42 @@ button h5 {
 
   .resources .row:not(:first-child) {
     margin-top: 1rem;
+  }
+}
+
+/*******************************************
+*      BLOG STYLES
+********************************************/
+
+body.blog {
+  background-color: #fff;
+}
+
+.blog .main {
+  margin-top: 2rem;
+}
+
+.blog .main .content-container {
+  border: 1px solid #cacaca;
+}
+
+.blog .footer {
+  background-color: #eeeef6;
+  margin-top: 4rem;
+}
+
+.blog .footer,
+.blog .footer a {
+  color: #333;
+}
+
+.blog .content-container a:hover,
+.blog .footer a:hover {
+  color: #59d;
+}
+
+@media (max-width: 640px) {
+  .blog .main .content-container:not(:first-child) {
+    margin-top: 2rem;
   }
 }
