@@ -170,12 +170,14 @@ button h5 {
   font-family: 'Salsa', serif;
 }
 
-.banner:not(.articles-font) h2 {
+.banner:not(.articles-font) h2:not(.main-page),
+.banner:not(.articles-font) h1.main-page {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.banner:not(.articles-font) h1 {
+.banner:not(.articles-font) h1:not(.main-page),
+.banner:not(.articles-font) h2.main-page {
   font-size: 2.5rem;
 }
 
