@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.5-alpine
+    environment:
+      POSTGRES_USER: gregmccoy
+      POSTGRES_DB: suicide_db
+      POSTGRES_PASSWORD: Conestoga1
+  web:
+    environment:
+      - DOCKER=1
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    depends_on:
+      - db
+    command: "/code/.docker/docker-run.sh"
+    ports:
+      - 8000:8000
+    volumes:
+      - ".:/code"
