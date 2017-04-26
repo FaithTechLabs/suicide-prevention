@@ -327,6 +327,11 @@ button h5 {
   .main.articles-font .content-container:not(:first-child) {
     width: 30%;
   }
+
+  .main .content-container.chat-width {
+    max-width: 50%;
+    min-width: 500px;
+  }
 }
 
 @media (max-width: 640px) {
