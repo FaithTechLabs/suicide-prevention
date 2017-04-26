@@ -19,6 +19,7 @@ body {
 body,
 .nav {
   background-color: #24262a;
+  font-family: 'Open Sans', arial, sans-serif;
 }
 
 .articles-font {
