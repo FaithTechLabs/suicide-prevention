@@ -12,9 +12,18 @@ html {
 }
 
 body {
-  background-color: #24262a;
   color: #fff;
   text-align: center;
+}
+
+body,
+.nav {
+  background-color: #24262a;
+  font-family: 'Open Sans', arial, sans-serif;
+}
+
+.articles-font {
+  color: #333;
 }
 
 .relative {
@@ -126,8 +135,9 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353c4b', endColorstr='#24262a',GradientType=0 ); /* IE6-9 */
 }
 
-.banner.article-page {
-  padding-bottom: 1rem;
+.articles-font.banner {
+  background: #353c4b;
+  color: #fff;
 }
 
 .banner.window-img {
@@ -146,9 +156,7 @@ ul {
 .struggle h2,
 .content-container h3,
 button h5 {
-  /*font-family: sans-serif;*/
   font-family: 'Gloria Hallelujah', sans-serif;
-  /*font-weight: 300;*/
 }
 
 .banner h1.salsa,
@@ -164,12 +172,14 @@ button h5 {
   font-family: 'Salsa', serif;
 }
 
-.banner:not(.articles-font) h2 {
+.banner:not(.articles-font) h2:not(.main-page),
+.banner:not(.articles-font) h1.main-page {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.banner:not(.articles-font) h1 {
+.banner:not(.articles-font) h1:not(.main-page),
+.banner:not(.articles-font) h2.main-page {
   font-size: 2.5rem;
 }
 
@@ -189,6 +199,10 @@ button h5 {
 .main .content-container,
 .main.tab-main:nth-child(even) {
   background-color: #353c4b;
+}
+
+.articles-font.main .content-container {
+  background-color: #fff;
 }
 
 .main:not(.articles-font) .content-container img {
@@ -234,6 +248,11 @@ button h5 {
 .content-container a,
 .content-container a:focus {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.articles-font .content-container a,
+.articles-font .content-container a:focus {
+  color: #222;
 }
 
 .content-container a:hover,
@@ -296,12 +315,14 @@ button h5 {
     text-align: left;
   }
 
-  .banner:not(.articles-font) h2 {
+  .banner:not(.articles-font) h2:not(.main-page),
+  .banner:not(.articles-font) h1.main-page {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
 
-  .banner:not(.articles-font) h1 {
+  .banner:not(.articles-font) h1:not(.main-page),
+  .banner:not(.articles-font) h2.main-page {
     font-size: 5rem;
   }
 
@@ -367,5 +388,42 @@ button h5 {
 
   .resources .row:not(:first-child) {
     margin-top: 1rem;
+  }
+}
+
+/*******************************************
+*      BLOG STYLES
+********************************************/
+
+body.blog {
+  background-color: #fff;
+}
+
+.blog .main {
+  margin-top: 2rem;
+}
+
+.blog .main .content-container {
+  border: 1px solid #cacaca;
+}
+
+.blog .footer {
+  background-color: #eeeef6;
+  margin-top: 4rem;
+}
+
+.blog .footer,
+.blog .footer a {
+  color: #333;
+}
+
+.blog .content-container a:hover,
+.blog .footer a:hover {
+  color: #59d;
+}
+
+@media (max-width: 640px) {
+  .blog .main .content-container:not(:first-child) {
+    margin-top: 2rem;
   }
 }
