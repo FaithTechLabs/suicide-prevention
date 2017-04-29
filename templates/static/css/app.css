@@ -22,6 +22,10 @@ body,
   font-family: 'Open Sans', arial, sans-serif;
 }
 
+.copyright-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .articles-font {
   color: #333;
 }
@@ -147,7 +151,8 @@ ul {
 }
 
 .banner.window-img h2,
-.banner.window-img h1 {
+.banner.window-img h1,
+.banner.banner-image h1 {
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -197,8 +202,13 @@ button h5 {
 }
 
 .main .content-container,
-.main.tab-main:nth-child(even) {
+.main.tab-main:nth-child(even),
+.main.tab-main.tab-main-light {
   background-color: #353c4b;
+}
+
+.tab-main hr {
+  opacity: 0.4;
 }
 
 .articles-font.main .content-container {
@@ -305,6 +315,16 @@ button h5 {
   height: 150px;
 }
 
+.banner.banner-image {
+  background: url("/static/images/pattern-background.jpg") no-repeat center;
+  background-size: cover;
+  margin-bottom: 3rem;
+}
+
+.banner.banner-image.no-bottom-margin {
+  margin-bottom: 0;
+}
+
 @media (min-width: 641px) {
   .hide-for-medium,
   .nav a.hide-for-medium {
@@ -323,7 +343,7 @@ button h5 {
 
   .banner:not(.articles-font) h1:not(.main-page),
   .banner:not(.articles-font) h2.main-page {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   .footer .locations li {
