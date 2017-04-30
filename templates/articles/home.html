@@ -22,7 +22,8 @@
             {{ article.date }} by {{ article.author }}
           </h6>
         </a>
-        {{ article.body|slice:":15" }}...
+        <!-- Preview of the first 95 characters -->
+        {{ article.body|truncatechars_html:95 }}
       </div>
     {% endfor %}
   </div>
@@ -48,7 +49,6 @@
         <a href="/articles/{{ article.slug }}">
           <div class="">
             <b>{{ article.title }}</b>
-            {{ article.body|slice:":15" }}...
           </div>
         </a>
       {% endfor %}
