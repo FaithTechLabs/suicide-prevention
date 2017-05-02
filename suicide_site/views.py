@@ -1,24 +1,7 @@
 from django.shortcuts import render
-from django.contrib.gis.geoip import GeoIP
 from django.views.generic import TemplateView
+from core_site.utils import get_client_ip, get_loc
 from .models import Reason
-
-
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_REAL_IP')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
-
-def get_loc(request):
-    g = GeoIP()
-    city = g.city(get_client_ip(request))
-    province = None
-    if city:
-        province = city['region']
-    return province
 
 class Location:
     template_name = None
@@ -52,10 +35,15 @@ class Province(TemplateView, Location):
     template_name = "province.html"
 
     def get(self, request, **kwargs):
+        # Gets the province using the IP
         province = get_loc(request)
+
+        # Gets the url the user typed after /province/
         page_loc = kwargs.get('province', '').capitalize().replace("_", " ")
+
         words = page_loc.split(" ")
         caps = []
+        # Fix the names of the provinces
         for word in words:
             if word != "and" and word != "Pei":
                 caps.append(word.capitalize())
@@ -65,42 +53,12 @@ class Province(TemplateView, Location):
                 caps.append(word)
         page_loc = " ".join(caps)
 
-        print(page_loc)
+        # Figure out if they typed a proince name or if we need a 404
         if page_loc not in ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland", \
                 "Nova Scotia", "Ontario", "PEI", "Northwest Territories", "Quebec", "Saskatchewan", "Yukon", "Nunavut"]:
             return render(request, "404.html", {'loc': province, 'page_loc': page_loc})
         return render(request, self.template_name, {'loc': province, 'page_loc': page_loc})
 
-
-class Why(TemplateView, Location):
-    template_name = "why.html"
-
-    def get(self, request):
-        province = get_loc(request)
-        return render(request, self.template_name, {'loc': province})
-
-    def post(self, request):
-        province = get_loc(request)
-        why = request.POST.get("why", "")
-        result = None
-
-        query = Reason.objects.all()
-        for item in query:
-            for word in item.keywords.split("|"):
-                print(why)
-                print(word)
-                print(why.find(word))
-                if why.find(word) != -1:
-                    result = item
-
-        if not result:
-            answers = ""
-            resources = ""
-            return render(request, self.template_name, {'loc': province, 'answers': answers, 'resources': resources })
-
-        answers = result.response
-        resources = result.resources.split("\n")
-        return render(request, self.template_name, {'loc': province, 'answers': answers, 'resources': resources })
 
 class WhyHere(TemplateView):
     template_name = "why_here.html"
