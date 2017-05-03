@@ -24,9 +24,11 @@ body,
 
 .copyright-row {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
 }
 
-.articles-font {
+.articles-font,
+.blog .copyright-row {
   color: #333;
 }
 
@@ -427,8 +429,12 @@ body.blog {
   border: 1px solid #cacaca;
 }
 
-.blog .footer {
+.blog .footer,
+.blog .copyright-row {
   background-color: #eeeef6;
+}
+
+.blog .footer {
   margin-top: 4rem;
 }
 
