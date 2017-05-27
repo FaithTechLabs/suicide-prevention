@@ -22,8 +22,8 @@
             {{ article.date }} by {{ article.author }}
           </h6>
         </a>
-        <!-- Preview of the first 95 characters -->
-        {{ article.body|truncatechars_html:95 }}
+        <!-- Preview of the first 300 characters -->
+        {{ article.body|truncatechars_html:300 }}
       </div>
     {% endfor %}
   </div>
@@ -39,21 +39,4 @@
     {% endfor %}
   </div>
 </div>
-<!--
-<div style='text-align: left;'>
-  <div class="row">
-    <h1 class="text-center">Articles</h1>
-    <div class="columns">
-      {% get_articles as articles %}
-      {% for article in articles %}
-        <a href="/articles/{{ article.slug }}">
-          <div class="">
-            <b>{{ article.title }}</b>
-          </div>
-        </a>
-      {% endfor %}
-    </div>
-  </div>
-</div>
--->
 {% endblock %}
