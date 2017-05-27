@@ -13,23 +13,48 @@ from modelcluster.fields import ParentalKey
 from modelcluster.tags import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
+"""Basic template for the article index page
+
+   Args:
+        Page (:class:`Page`): A wagtail page object
+
+"""
 class HomeArticle(Page):
     template = 'articles/home.html'
 
 
+"""Tags for article categories
+
+   Args:
+        TaggedItemBase (:class:`TaggedItemBase`): A wagtail tag object
+
+"""
 class ArticleTag(TaggedItemBase):
-        content_object = ParentalKey('ContentArticle', related_name='tagged_items')
+    content_object = ParentalKey('ContentArticle', related_name='tagged_items')
 
 
+""" Template for articles
+
+    Uses the wagtail stream field so that users can add in custom blocks that
+    can be used in the CMS such as paragraphs of images. Blocks are added to the
+    body StreamField.
+
+   Args:
+        Page (:class:`Page`): A wagtail page object
+
+"""
 class ContentArticle(Page):
     template = 'articles/article.html'
     date = models.DateField()
 
+    # Each block will show up when adding elements to a page in the CMS
     body = StreamField([
         ('paragraph', blocks.RichTextBlock(icon='edit', template='wagtail_blocks/paragraph.html')),
         ('image', ImageChooserBlock(icon='image', template='wagtail_blocks/image.html')),
         ('full_width_image', ImageChooserBlock(icon='image', template='wagtail_blocks/full_width_image.html')),
     ])
+
+    # We want to be able to tag articles with certain categories
     tags = ClusterTaggableManager(through=ArticleTag, blank=True)
 
     image = models.ForeignKey(
@@ -55,6 +80,12 @@ class ContentArticle(Page):
         InlinePanel('related_links', label="Related links"),
     ]
 
+"""Allows adding related links to articles
+
+   Args:
+        Orderable (:class:`Orderable`): Wagtail object for related links
+
+"""
 class ArticleRelatedLink(Orderable):
     page = ParentalKey(ContentArticle, related_name='related_links')
     name = models.CharField(max_length=255)
