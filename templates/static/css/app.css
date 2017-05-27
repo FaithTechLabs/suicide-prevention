@@ -22,7 +22,13 @@ body,
   font-family: 'Open Sans', arial, sans-serif;
 }
 
-.articles-font {
+.copyright-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+}
+
+.articles-font,
+.blog .copyright-row {
   color: #333;
 }
 
@@ -147,7 +153,8 @@ ul {
 }
 
 .banner.window-img h2,
-.banner.window-img h1 {
+.banner.window-img h1,
+.banner.banner-image h1 {
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -159,6 +166,8 @@ button h5 {
   font-family: 'Gloria Hallelujah', sans-serif;
 }
 
+.banner h1.salsa,
+.content-container h3.salsa,
 .articles-font h1,
 .articles-font .banner h1,
 .articles-font h2,
@@ -195,8 +204,13 @@ button h5 {
 }
 
 .main .content-container,
-.main.tab-main:nth-child(even) {
+.main.tab-main:nth-child(even),
+.main.tab-main.tab-main-light {
   background-color: #353c4b;
+}
+
+.tab-main hr {
+  opacity: 0.4;
 }
 
 .articles-font.main .content-container {
@@ -303,6 +317,16 @@ button h5 {
   height: 150px;
 }
 
+.banner.banner-image {
+  background: url("/static/images/pattern-background.jpg") no-repeat center;
+  background-size: cover;
+  margin-bottom: 3rem;
+}
+
+.banner.banner-image.no-bottom-margin {
+  margin-bottom: 0;
+}
+
 @media (min-width: 641px) {
   .hide-for-medium,
   .nav a.hide-for-medium {
@@ -321,7 +345,7 @@ button h5 {
 
   .banner:not(.articles-font) h1:not(.main-page),
   .banner:not(.articles-font) h2.main-page {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   .footer .locations li {
@@ -345,6 +369,11 @@ button h5 {
 
   .main.articles-font .content-container:not(:first-child) {
     width: 30%;
+  }
+
+  .main .content-container.chat-width {
+    max-width: 50%;
+    min-width: 500px;
   }
 }
 
@@ -400,8 +429,12 @@ body.blog {
   border: 1px solid #cacaca;
 }
 
-.blog .footer {
+.blog .footer,
+.blog .copyright-row {
   background-color: #eeeef6;
+}
+
+.blog .footer {
   margin-top: 4rem;
 }
 

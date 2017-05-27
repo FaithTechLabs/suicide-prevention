@@ -6,29 +6,31 @@
 
 {% load staticfiles %}
 {% block content %}
-<div class='banner'>
+<div class='banner banner-image'>
   <div class='content-container'>
-    <h1>Resources</h1>
+    <h1 class='salsa'>Resources</h1>
   </div>
-  <a href='tel:+12267897545' class='btn phone-btn'>
-    <i class='fa fa-phone hide-for-medium'></i>
-    <span class='name'>Call</span>
-    <span class='hide-for-small-only'>
-      <br>
-      <i class='fa fa-phone'></i>
-      <span class='number'></span>
-    </span>
-  </a>
-  <br>
-  <a id='chatButton' href='/chat/' class='btn success'>
-    <i class='fa fa-commenting-o'></i> Chat Now
-  </a>
 </div>
 
-<div class='main'>
+<a href='tel:+12267897545' class='btn phone-btn'>
+  <i class='fa fa-phone hide-for-medium'></i>
+  <span class='name'>Call</span>
+  <span class='hide-for-small-only'>
+    <br>
+    <i class='fa fa-phone'></i>
+    <span class='number'></span>
+  </span>
+</a>
+<br>
+<a id='chatButton' href='/chat/' class='btn success'>
+  <i class='fa fa-commenting-o'></i> Chat Now
+</a>
+<br><br>
+
+<div class='main tab-main'>
   <div class='content-container resources'>
     <div class='row columns'>
-      <h3>Links</h3>
+      <h3 class='salsa'>Links</h3>
     </div>
     <div class='row'>
       <div class='columns hide-for-small-only medium-3 center'>
@@ -41,6 +43,7 @@
         <a href="http://p2c.com/receive/#receive">Need someone to talk to?</a>
       </div>
     </div>
+    <hr>
     <div class='row'>
       <div class='columns hide-for-small-only medium-3 center'>
         <a href="http://suicideprevention.ca/need-help/im-having-thoughts-of-suicide/"><img src={% static "images/logos/CASP-white-logo.png" %} /></a>
@@ -50,6 +53,7 @@
         <a href="http://suicideprevention.ca/need-help/im-having-thoughts-of-suicide/">I'm having thoughts of suicide</a>
       </div>
     </div>
+    <hr>
     <div class='row'>
       <div class='columns hide-for-small-only medium-3 center'>
         <a href="https://www.thehopeline.com/gethelp/"><img src={% static "images/logos/THL-Logo.png" %} /></a>
@@ -67,7 +71,7 @@
     </div>
     <br><br>
     <div class='row columns'>
-      <h3>Statistics</h3>
+      <h3 class='salsa'>Statistics</h3>
     </div>
     <div class='row columns'>
       <p>
