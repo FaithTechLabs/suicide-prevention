@@ -6,5 +6,5 @@ register = template.Library()
 
 @register.simple_tag
 def get_articles():
-   pages = ContentArticle.objects.all()
+   pages = ContentArticle.objects.live().public().order_by('date').reverse()
    return pages
