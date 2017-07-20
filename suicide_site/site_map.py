@@ -1,10 +1,12 @@
 from django.contrib.sitemaps import Sitemap
+from articles.models import ContentArticle
 from django.core.urlresolvers import reverse, resolve
 
 def get_sitemap():
     sitemap = {
         "main_sitemap": MainSitemap,
         "province_sitemap": ProvinceSitemap,
+        "article_sitemap": ArticleSitemap,
     }
     return sitemap
 
@@ -36,3 +38,13 @@ class ProvinceSitemap(Sitemap):
     def location(self, item):
         return "/province" + item
 
+class ArticleSitemap(Sitemap):
+    """
+    Sitemap for articles
+    """
+    def items(self):
+       pages = ContentArticle.objects.live().public().order_by('date').reverse()
+       return pages
+
+    def location(self, item):
+        return "/articles/" + item.slug + "/"
