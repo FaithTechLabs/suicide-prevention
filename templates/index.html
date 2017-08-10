@@ -12,8 +12,12 @@
     <a id='chatButton' href='https://www.thehopeline.com/gethelp' class='hide-for-medium btn'>
       <i class='fa fa-commenting-o'></i> Chat Now
     </a>
-    <iframe class='hide-for-small-only' width="560" height="315" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
-    <iframe class='hide-for-medium' width="280" height="180" src="https://www.youtube.com/embed/IqqIV8x82Qc" frameborder="0" allowfullscreen></iframe>
+    <div class='hide-for-small-only'>
+      <div id='hero-video-large'></div>
+    </div>
+    <div class='hide-for-medium'>
+      <div id='hero-video-small'></div>
+    </div>
   </div>
   <div class='cover'></div>
 </div>
@@ -201,22 +205,23 @@
   </div>
 </div>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
   var clickTab = function(index) {
     $('html, body').animate({
       scrollTop: $("#tab-" + index).offset().top - 30
     }, 750);
-  }
-   $(document).ready(function() {
-		$("#relationships").click(function(){
+  };
+  $(document).ready(function() {
+  	$("#relationships").click(function(){
       clickTab('relationships');
-		});
-		$("#bullying").click(function() {
-			clickTab('bullying');
-		});
-		$("#loneliness").click(function() {
-			clickTab('loneliness');
-		});
+  	});
+  	$("#bullying").click(function() {
+  		clickTab('bullying');
+  	});
+  	$("#loneliness").click(function() {
+  		clickTab('loneliness');
+  	});
     $("#depression").click(function() {
       clickTab('depression');
     });
@@ -224,10 +229,46 @@
       clickTab('finances');
     });
     $(document).foundation();
-   })
-</script>
+  });
 
-<script>
+  var hasPlayedVideo = false;
+
+  var trackPlayEvent = function(event) {
+    if ((event.data == YT.PlayerState.PLAYING) && !hasPlayedVideo) {
+      hasPlayedVideo = true;
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Videos',
+        eventAction: 'play',
+        eventLabel: '"For Those Considering Suicide"'
+      });
+    }
+  }
+
+  function onYouTubeIframeAPIReady() {
+    var playerLarge = new YT.Player('hero-video-large', {
+      height: '315',
+      width: '560',
+      videoId: 'IqqIV8x82Qc',
+      events: {
+        'onStateChange': function(event) {
+          trackPlayEvent(event);
+        }
+      }
+    });
+
+    var playerSmall = new YT.Player('hero-video-small', {
+      height: '180',
+      width: '280',
+      videoId: 'IqqIV8x82Qc',
+      events: {
+        'onStateChange': function(event) {
+          trackPlayEvent(event);
+        }
+      }
+    });
+  }
+
   initLocation('{{ loc }}');
 </script>
 {% endblock %}
