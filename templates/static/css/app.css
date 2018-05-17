@@ -32,6 +32,10 @@ body,
   color: #333;
 }
 
+p > a {
+    color: #2ba6cb !important;
+}
+
 .relative {
   position: relative;
 }
