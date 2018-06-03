@@ -35,6 +35,39 @@
   </div>
 </div>
 
+<script>
+  var image_url = $(".block-full_width_image").first().find("img").first().attr("src")
+  var el = document.createElement('script');
+  el.type = 'application/ld+json';
+  el.text = JSON.stringify({
+   "@context": "http://schema.org",
+   "@type": "Article",
+   "headline": "{{ page.title }}",
+   "image": image_url,
+   "url": "https://howtokillyourself.org/articles/{{ page.slug }}/",
+   "datePublished": "{{ page.date|date:'Y-m-d' }}",
+   "dateModified": "{{ page.date|date:'Y-m-d' }}",
+   "author": {
+     "@type": "Person",
+     "name": "{{ page.author }}"
+   },
+   "publisher": {
+     "@type": "Organization",
+     "name": "Searching4Hope",
+     "logo": {
+       "@type": "ImageObject",
+       "url": "http://www.searching4hope.com/wp-content/uploads/2017/06/s4h.png"
+     }
+   },
+   "keywords": "{% for category in page.tags.all %}{{ category|lower }}{% if not forloop.last %},{% endif %}{% endfor %}",
+   "mainEntityOfPage": {
+     "@type": "WebPage",
+     "@id": "https://howtokillyourself.org/articles/{{ page.slug }}/"
+   }
+  });
+  document.querySelector('body').appendChild(el);
+</script>
+
 {% comment %}
 <div style='text-align: left;'>
   <div class="row">
