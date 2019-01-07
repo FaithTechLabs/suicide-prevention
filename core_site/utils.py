@@ -6,6 +6,8 @@ def get_client_ip(request):
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
+    if not ip:
+        ip = request.META.get("HTTP_CF_CONNECTING_IP", "")
     return ip
 
 def get_loc(request):

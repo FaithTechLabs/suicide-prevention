@@ -5,14 +5,25 @@
   <div class='content-container'>
     <h1 class='main-page'>Asking how to kill yourself?</h1>
     <h2 class='main-page'>You're not alone.</h2>
+    {% comment %}
     <p style="font-size: 16px"><b>Are you asking how to kill yourself? We want you to know you are not alone – so many others have asked that question. We’d like to help you make another choice. It might feel impossible right now, but you matter, and the world is better with you in it.</b></p>
-    <a href='tel:+12267897545' class='hide-for-medium btn phone-btn'>
-      <i class='fa fa-phone'></i>
-      <span class='name'>Call</span>
-    </a>
-    <a id='chatButton' href='https://www.thehopeline.com/gethelp' class='hide-for-medium btn'>
-      <i class='fa fa-commenting-o'></i> Chat Now
-    </a>
+    {% endcomment %}
+    {% if geo.country_code == "US" %}
+      <a href='tel:+18002738255' class='hide-for-medium btn phone-btn'>
+        <span class='name'>USA National Suicide Hotline</span>
+        <i class='fa fa-phone'></i>
+        <span class='name'>Call: 1-800-273-8255</span>
+      </a>
+    {% else %}
+      <a href='tel:+18334564566' class='hide-for-medium btn phone-btn'>
+        <span class='name'><b>Canada's Suicide Hotline</b></span>
+        <i class='fa fa-phone'></i>
+        <span class='name'>1-833-456-4566</span>
+      </a>
+    {% endif %}
+      <a id='chatButton' href='https://www.thehopeline.com/gethelp' class='hide-for-medium btn'>
+        <i class='fa fa-commenting-o'></i> Chat Now
+      </a>
     <div class='hide-for-small-only'>
       <div id='hero-video-large'></div>
     </div>
@@ -25,15 +36,28 @@
 
 <div class="hide-for-small-only">
   <br>
-  <a href='tel:+12267897545' class='btn phone-btn'>
-    <i class='fa fa-phone hide-for-medium'></i>
-    <span class='name'>Call</span>
-    <span class='hide-for-small-only'>
-      <br>
-      <i class='fa fa-phone'></i>
-      <span class='number'></span>
-    </span>
-  </a>
+  {% if geo.country_code == "US" %}
+    <a href='tel:+18002738255' class='btn phone-btn'>
+      <i class='fa fa-phone hide-for-medium'></i>
+      <span class='name'>USA National Suicide Hotline</span>
+      <span class='hide-for-small-only'>
+        <br>
+        <i class='fa fa-phone'></i>
+        <span class='number'>Call: 1-800-273-8255</span>
+      </span>
+    </a>
+  {% else %}
+    <a href='tel:+18334564566' class='hide-for-small-only btn phone-btn'>
+      <i class='fa fa-phone hide-for-medium'></i>
+      <span class='name'><b>Canada's Suicide Hotline</b></span>
+      <span class='hide-for-small-only'>
+        <br>
+        <i class='fa fa-phone'></i>
+        <span class='number'></span>
+      </span>
+      <span class='name'>1-833-456-4566</span>
+    </a>
+  {% endif %}
   <br>
   <a id='chatButton' href='https://www.thehopeline.com/gethelp' class='btn success'>
     <i class='fa fa-commenting-o'></i> Chat Now
@@ -174,7 +198,6 @@
         We’ve also got a list of links below with some lifelines if you’d like to check them out:<br>
         <a href='https://issuesiface.com/loneliness'>https://issuesiface.com/loneliness</a><br>
         <a href='http://psychcentral.com/blog/archives/2012/07/16/10-more-ideas-to-help-with-loneliness/'>http://psychcentral.com/blog/archives/2012/07/16/10-more-ideas-to-help-with-loneliness/</a><br>
-        <a href='http://www.counseling.ufl.edu/cwc/how-to-deal-with-loneliness.aspx'>http://www.counseling.ufl.edu/cwc/how-to-deal-with-loneliness.aspx</a>
       </p>
     </div>
   </div>
@@ -288,8 +311,9 @@
       }
     });
   }
-
-  initLocation('{{ loc }}');
+  {% comment %}
+    initLocation('{{ loc }}');
+  {% endcomment %}
 </script>
 {% endblock %}
 
